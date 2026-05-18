@@ -20,7 +20,7 @@ export default function Home() {
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-4">
             Media ini mengubah modul atmosfer menjadi ruang belajar interaktif: siswa membaca peta suhu, membandingkan pesisir dan dataran tinggi, menafsirkan data cuaca, lalu menyusun bukti spasial dalam LKPD.
           </p>
-          
+
           <div className="flex flex-wrap gap-4 mt-6">
             <a href="/simulator" className="px-6 py-3 rounded-xl font-label-md text-label-md text-surface-dim bg-gradient-to-r from-primary-container to-primary-fixed shadow-[0_0_15px_rgba(0,242,255,0.3)] hover:opacity-90 transition-opacity">
               Mulai Simulasi
@@ -69,11 +69,10 @@ export default function Home() {
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2 rounded-full font-label-md text-sm whitespace-nowrap transition-all cursor-pointer relative z-20 ${
-                activeTab === tab
-                  ? "bg-primary-container/20 border border-primary-container/50 text-primary-fixed shadow-[0_0_10px_rgba(0,242,255,0.2)]"
-                  : "bg-surface/40 border border-white/10 text-on-surface-variant hover:text-white"
-              }`}
+              className={`px-5 py-2 rounded-full font-label-md text-sm whitespace-nowrap transition-all cursor-pointer relative z-20 ${activeTab === tab
+                ? "bg-primary-container/20 border border-primary-container/50 text-primary-fixed shadow-[0_0_10px_rgba(0,242,255,0.2)]"
+                : "bg-surface/40 border border-white/10 text-on-surface-variant hover:text-white"
+                }`}
             >
               {tab === "konsep" && "Konsep"}
               {tab === "faktor" && "Faktor Geografis"}
