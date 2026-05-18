@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Media Pembelajaran Atmosfer Spasial</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#beranda" aria-label="Kembali ke beranda">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Atmosfer Spasial</span>
+      </a>
+      <nav class="nav" aria-label="Navigasi media pembelajaran">
+        <a href="#materi">Materi</a>
+        <a href="#simulator">Simulasi</a>
+        <a href="#lkpd">LKPD</a>
+        <a href="#kuis">Kuis</a>
+        <a href="#rubrik">Rubrik</a>
+        <a href="#refleksi">Refleksi</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="workspace" id="beranda">
+        <div class="workspace-copy">
+          <p class="eyebrow">Geografi Kelas X | Fase E | 2 JP x 45 menit</p>
+          <h1>Laboratorium Atmosfer Berbasis Lokasi</h1>
+          <p class="lead">
+            Media ini mengubah modul atmosfer menjadi ruang belajar interaktif:
+            siswa membaca peta suhu, membandingkan pesisir dan dataran tinggi,
+            menafsirkan data cuaca, lalu menyusun bukti spasial dalam LKPD.
+          </p>
+          <div class="quick-actions" aria-label="Aksi utama">
+            <a class="button primary" href="#simulator">Mulai Simulasi</a>
+            <a
+              class="button secondary"
+              href="assets/modul-ajar-deep-learning-basis-spasial.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Buka Modul PDF
+            </a>
+          </div>
+          <div class="outcome-strip" aria-label="Tujuan pembelajaran">
+            <article>
+              <span>01</span>
+              <strong>Analisis geografis</strong>
+              <p>Hubungkan suhu dan kelembapan dengan elevasi, lintang, dan jarak dari laut.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <strong>Interpretasi data</strong>
+              <p>Baca peta tematik, grafik sederhana, dan citra cuaca secara kritis.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <strong>Visual berbasis lokasi</strong>
+              <p>Sajikan temuan dalam bentuk peta, screenshot beranotasi, atau infografis.</p>
+            </article>
+          </div>
+        </div>
+        <figure class="workspace-visual">
+          <img
+            src="assets/atmosphere-spatial-map.png"
+            alt="Ilustrasi peta atmosfer dengan perbandingan suhu pesisir dan dataran tinggi"
+          />
+          <figcaption>
+            Peta visual untuk membaca hubungan elevasi, suhu, kelembapan, angin, dan kedekatan laut.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="learning-flow" aria-labelledby="alur-title">
+        <div class="section-head compact">
+          <p class="eyebrow">Alur Pertemuan</p>
+          <h2 id="alur-title">Dari Pemantik Sampai Portofolio</h2>
+        </div>
+        <div class="flow-grid">
+          <article>
+            <span>15 menit</span>
+            <h3>Pendahuluan</h3>
+            <p>Diskusi pemantik: mengapa pesisir Surabaya terasa lebih panas daripada Kota Batu?</p>
+          </article>
+          <article>
+            <span>60 menit</span>
+            <h3>Inti</h3>
+            <p>Orientation, organization, investigation, presentation, analysis, dan evaluation.</p>
+          </article>
+          <article>
+            <span>15 menit</span>
+            <h3>Penutup</h3>
+            <p>Simpulan berbasis bukti spasial, refleksi lingkungan, dan pengumpulan karya visual.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="materi">
+        <div class="section-head">
+          <p class="eyebrow">Materi Inti</p>
+          <h2>Atmosfer Sebagai Sistem Spasial</h2>
+          <p>
+            Fokus pembelajaran adalah memahami dinamika atmosfer melalui bukti lokasi:
+            warna citra suhu, pola angin, kelembapan, elevasi, lintang, dan jarak dari laut.
+          </p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Topik materi">
+          <button class="tab is-active" type="button" role="tab" aria-selected="true" data-tab="konsep">
+            Konsep
+          </button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-tab="faktor">
+            Faktor Geografis
+          </button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-tab="deep">
+            Deep Learning
+          </button>
+          <button class="tab" type="button" role="tab" aria-selected="false" data-tab="digital">
+            Data Digital
+          </button>
+        </div>
+
+        <div class="tab-panels">
+          <article class="tab-panel is-active" id="panel-konsep" role="tabpanel">
+            <div class="text-block">
+              <h3>Konsep atmosfer yang dipelajari</h3>
+              <p>
+                Atmosfer dipahami melalui komposisi, struktur lapisan, unsur cuaca dan iklim,
+                serta dampak aktivitas manusia seperti pemanasan global dan perubahan iklim.
+              </p>
+              <ul class="check-list">
+                <li>Konseptual: definisi atmosfer, lapisan atmosfer, cuaca, iklim, dan faktor pengendali iklim.</li>
+                <li>Prosedural: membaca data cuaca sederhana, citra satelit, dan peta tematik.</li>
+                <li>Metakognitif: menyadari peran atmosfer bagi kehidupan dan tanggung jawab lingkungan.</li>
+              </ul>
+            </div>
+            <img
+              class="inline-visual"
+              src="assets/lapse-rate-diagram.png"
+              alt="Diagram gradien termal vertikal yang menunjukkan suhu menurun saat elevasi meningkat"
+            />
+          </article>
+
+          <article class="tab-panel" id="panel-faktor" role="tabpanel" hidden>
+            <div class="factor-grid">
+              <article>
+                <h3>Elevasi</h3>
+                <p>Semakin tinggi suatu tempat, suhu cenderung menurun karena kerapatan udara dan tekanan berubah.</p>
+              </article>
+              <article>
+                <h3>Lintang</h3>
+                <p>Perbedaan lintang memengaruhi sudut datang sinar matahari dan intensitas pemanasan.</p>
+              </article>
+              <article>
+                <h3>Kedekatan Laut</h3>
+                <p>Pesisir memiliki pengaruh angin laut dan kelembapan yang berbeda dari wilayah pedalaman.</p>
+              </article>
+              <article>
+                <h3>Tutupan Lahan</h3>
+                <p>Permukiman padat, vegetasi, dan badan air dapat mengubah pola suhu lokal.</p>
+              </article>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="panel-deep" role="tabpanel" hidden>
+            <div class="approach-grid">
+              <article>
+                <span>Meaningful</span>
+                <h3>Bermakna</h3>
+                <p>Konsep dihubungkan dengan pengalaman harian seperti panas pesisir, hujan lebat, dan udara pegunungan.</p>
+              </article>
+              <article>
+                <span>Joyful</span>
+                <h3>Menyenangkan</h3>
+                <p>Siswa mengeksplorasi visualisasi cuaca, diskusi kelompok, dan peta tematik yang hidup.</p>
+              </article>
+              <article>
+                <span>Mindful</span>
+                <h3>Reflektif</h3>
+                <p>Siswa melihat atmosfer sebagai sistem: perubahan suhu dapat memengaruhi tekanan, angin, dan hujan.</p>
+              </article>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="panel-digital" role="tabpanel" hidden>
+            <div class="resource-grid">
+              <a href="https://zoom.earth/" target="_blank" rel="noreferrer">
+                <strong>Zoom Earth</strong>
+                <span>Layer temperature, wind, humidity, dan rain.</span>
+              </a>
+              <a href="https://earth.google.com/" target="_blank" rel="noreferrer">
+                <strong>Google Earth</strong>
+                <span>Elevasi, koordinat, jarak lokasi, dan pengamatan visual.</span>
+              </a>
+              <a href="https://www.bmkg.go.id/" target="_blank" rel="noreferrer">
+                <strong>BMKG</strong>
+                <span>Rujukan data cuaca dan iklim dari sumber nasional.</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section simulation-band" id="simulator">
+        <div class="section-head">
+          <p class="eyebrow">Simulasi</p>
+          <h2>Uji Faktor Geografis</h2>
+          <p>
+            Atur elevasi, lintang, dan jarak dari laut untuk melihat perubahan estimasi suhu,
+            kelembapan, warna citra, dan argumentasi spasial.
+          </p>
+        </div>
+
+        <div class="simulator-grid">
+          <div class="control-panel" aria-label="Panel kontrol simulasi">
+            <label>
+              <span>Elevasi</span>
+              <strong id="elevationValue">900 mdpl</strong>
+              <input id="elevation" type="range" min="0" max="1500" value="900" step="25" />
+            </label>
+            <label>
+              <span>Lintang</span>
+              <strong id="latitudeValue">7 LS</strong>
+              <input id="latitude" type="range" min="0" max="45" value="7" step="1" />
+            </label>
+            <label>
+              <span>Jarak dari laut</span>
+              <strong id="distanceValue">35 km</strong>
+              <input id="distance" type="range" min="0" max="180" value="35" step="5" />
+            </label>
+            <label>
+              <span>Tutupan vegetasi</span>
+              <strong id="greenValue">45%</strong>
+              <input id="greenCover" type="range" min="0" max="100" value="45" step="5" />
+            </label>
+          </div>
+
+          <div class="map-lab" aria-label="Visual simulasi spasial">
+            <div class="map-stage" id="mapStage">
+              <div class="sea-zone"></div>
+              <div class="land-zone"></div>
+              <div class="mountain one"></div>
+              <div class="mountain two"></div>
+              <div class="temperature-layer" id="temperatureLayer"></div>
+              <div class="wind-line a"></div>
+              <div class="wind-line b"></div>
+              <div class="location-pin" id="locationPin">
+                <span></span>
+              </div>
+            </div>
+            <div class="metrics" aria-live="polite">
+              <article>
+                <span>Suhu</span>
+                <strong id="temperatureMetric">21 C</strong>
+              </article>
+              <article>
+                <span>Kelembapan</span>
+                <strong id="humidityMetric">70%</strong>
+              </article>
+              <article>
+                <span>Warna Citra</span>
+                <strong id="colorMetric">Hijau-biru</strong>
+              </article>
+            </div>
+          </div>
+
+          <aside class="analysis-panel">
+            <h3>Interpretasi</h3>
+            <p id="dominantFactor">Elevasi menjadi faktor paling kuat pada skenario ini.</p>
+            <p id="spatialExplanation">
+              Lokasi dengan elevasi menengah sampai tinggi cenderung lebih sejuk dibandingkan pesisir.
+            </p>
+            <button class="button secondary" type="button" id="sendToWorksheet">
+              Masukkan ke LKPD
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="lkpd">
+        <div class="section-head">
+          <p class="eyebrow">LKPD Digital</p>
+          <h2>Catatan Investigasi Kelompok</h2>
+          <p>
+            Gunakan tabel ini untuk mencatat lokasi, hasil pembacaan layer cuaca, dan faktor geografis
+            penyebab perbedaan atmosfer.
+          </p>
+        </div>
+
+        <div class="worksheet-actions">
+          <button class="button primary" type="button" id="addRow">Tambah Lokasi</button>
+          <button class="button secondary" type="button" id="saveWorksheet">Simpan</button>
+          <button class="button secondary" type="button" id="printPortfolio">Cetak Portofolio</button>
+          <button class="button ghost" type="button" id="resetWorksheet">Reset</button>
+        </div>
+
+        <div class="table-wrap">
+          <table class="worksheet-table">
+            <thead>
+              <tr>
+                <th>Lokasi</th>
+                <th>Elevasi</th>
+                <th>Suhu</th>
+                <th>Kelembapan</th>
+                <th>Jarak Laut</th>
+                <th>Faktor Dominan</th>
+                <th>Kesimpulan Spasial</th>
+              </tr>
+            </thead>
+            <tbody id="worksheetBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section quiz-band" id="kuis">
+        <div class="section-head">
+          <p class="eyebrow">Asesmen Sumatif</p>
+          <h2>Kuis Interpretasi Atmosfer</h2>
+          <p>
+            Pertanyaan menilai kemampuan membaca fenomena atmosfer, menalar data spasial,
+            dan menyusun kesimpulan berbasis lokasi.
+          </p>
+        </div>
+        <form class="quiz" id="quizForm"></form>
+        <div class="quiz-actions">
+          <button class="button primary" type="button" id="checkQuiz">Periksa Jawaban</button>
+          <button class="button ghost" type="button" id="resetQuiz">Ulangi</button>
+        </div>
+        <p class="quiz-result" id="quizResult" aria-live="polite"></p>
+      </section>
+
+      <section class="section" id="rubrik">
+        <div class="section-head">
+          <p class="eyebrow">Penilaian Formatif</p>
+          <h2>Rubrik Visual Berbasis Lokasi</h2>
+          <p>
+            Rubrik mengikuti modul: interpretasi peta dan citra satelit, penyajian visual,
+            serta argumentasi akademik saat presentasi.
+          </p>
+        </div>
+        <div class="rubric-grid" id="rubricGrid"></div>
+        <div class="rubric-summary">
+          <span>Total Skor</span>
+          <strong id="rubricScore">9 / 12</strong>
+          <p id="rubricFeedback">Kinerja baik. Perkuat ketepatan legenda dan bukti lokasi.</p>
+        </div>
+      </section>
+
+      <section class="section reflection-band" id="refleksi">
+        <div class="section-head">
+          <p class="eyebrow">Refleksi Mindful</p>
+          <h2>Cuaca, Lingkungan, dan Kebiasaan Diri</h2>
+          <p>
+            Pertanyaan reflektif diarahkan pada kesadaran metakognitif dan kepedulian lingkungan.
+          </p>
+        </div>
+        <div class="reflection-grid">
+          <label>
+            <span>Hal apa yang paling membuatmu khawatir tentang cuaca di lingkunganmu?</span>
+            <textarea id="reflectionConcern" rows="6"></textarea>
+          </label>
+          <label>
+            <span>Kebiasaan buruk apa yang ingin kamu hentikan untuk menjaga lingkungan?</span>
+            <textarea id="reflectionHabit" rows="6"></textarea>
+          </label>
+        </div>
+        <div class="reflection-actions">
+          <button class="button primary" type="button" id="saveReflection">Simpan Refleksi</button>
+          <button class="button secondary" type="button" id="clearReflection">Kosongkan</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Disusun berdasarkan Modul Ajar Deep Learning Basis Spasial, materi Atmosfer,
+        SMA Al-Fanturas, Tahun Pelajaran 2026/2027.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

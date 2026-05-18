@@ -1,0 +1,367 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Laboratorium Atmosfer - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#3a494b",
+                        "primary-fixed": "#74f5ff",
+                        "surface-container-low": "#1a1a27",
+                        "surface-container": "#1f1e2b",
+                        "on-secondary-container": "#e498ff",
+                        "inverse-surface": "#e3e0f3",
+                        "on-tertiary": "#05297a",
+                        "surface-bright": "#383846",
+                        "outline": "#849495",
+                        "tertiary": "#f8f6ff",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#00dbe7",
+                        "primary-container": "#00f2ff",
+                        "on-secondary": "#520070",
+                        "surface-variant": "#343341",
+                        "background": "#12121f",
+                        "surface-container-highest": "#343341",
+                        "on-primary-container": "#006a71",
+                        "on-primary-fixed": "#002022",
+                        "surface-tint": "#00dbe7",
+                        "on-primary-fixed-variant": "#004f54",
+                        "on-secondary-fixed": "#320046",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#2f2f3d",
+                        "inverse-primary": "#00696f",
+                        "tertiary-fixed": "#dce1ff",
+                        "secondary-fixed-dim": "#edb1ff",
+                        "secondary-fixed": "#f9d8ff",
+                        "surface-dim": "#12121f",
+                        "on-background": "#e3e0f3",
+                        "primary": "#e1fdff",
+                        "on-tertiary-container": "#425bac",
+                        "on-primary": "#00363a",
+                        "on-secondary-fixed-variant": "#6e208c",
+                        "on-tertiary-fixed": "#00164e",
+                        "on-surface-variant": "#b9cacb",
+                        "surface-container-high": "#292936",
+                        "tertiary-container": "#d1d9ff",
+                        "error-container": "#93000a",
+                        "secondary-container": "#6e208c",
+                        "surface": "#12121f",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#264191",
+                        "surface-container-lowest": "#0d0d19",
+                        "tertiary-fixed-dim": "#b6c4ff",
+                        "on-surface": "#e3e0f3",
+                        "secondary": "#edb1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "sidebar-collapsed": "72px",
+                        "gutter": "16px",
+                        "sidebar-width": "280px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Outfit"],
+                        "headline-lg-mobile": ["Outfit"],
+                        "headline-lg": ["Outfit"],
+                        "caption": ["Inter"],
+                        "headline-md": ["Outfit"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050510; /* Deep Navy Base Level 0 */
+            color: #e3e0f3;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(30, 58, 138, 0.2); /* Deep Blue Level 1 */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1); /* White Level 2 */
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .glass-floating {
+            background: rgba(255, 255, 255, 0.1); /* White Level 3 */
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.1); /* Primary Cyan glow */
+        }
+        .doodle-glow {
+            box-shadow: 0 0 10px #00F2FF;
+        }
+        .text-glow {
+            text-shadow: 0 0 8px #74f5ff;
+        }
+        
+        /* Ambient Background Effect */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.15) 0%, rgba(5, 5, 16, 1) 70%);
+        }
+        
+        /* Map Gradient Animation */
+        @keyframes pulse-map {
+            0% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); box-shadow: 0 0 30px rgba(0, 242, 255, 0.3), inset 0 0 20px rgba(110, 32, 140, 0.3); }
+            100% { opacity: 0.8; transform: scale(1); }
+        }
+        .map-interactive {
+            background: linear-gradient(135deg, rgba(0, 242, 255, 0.1) 0%, rgba(110, 32, 140, 0.1) 100%);
+            animation: pulse-map 8s infinite ease-in-out;
+            border-top: 1px solid rgba(0, 242, 255, 0.4);
+            border-left: 1px solid rgba(0, 242, 255, 0.4);
+        }
+        
+        /* Widget highlight */
+        .widget-highlight {
+            position: relative;
+            overflow: hidden;
+        }
+        .widget-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex text-on-background">
+<div class="ambient-bg"></div>
+<!-- SideNavBar (Hidden on Mobile, Flex on Desktop) -->
+<nav class="hidden md:flex bg-surface-container-low/30 dark:bg-surface-container-low/30 backdrop-blur-2xl h-screen sticky left-0 top-0 w-sidebar-width border-r border-white/15 shadow-2xl flex-col gap-unit p-4 transition-all duration-300 z-50">
+<!-- Header -->
+<div class="flex items-center gap-4 mb-8 px-2 mt-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-[0_0_10px_#00F2FF]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-md text-primary-fixed drop-shadow-[0_0_8px_#74f5ff]">Laboratorium</span>
+<span class="font-label-md text-caption text-primary-fixed-dim">Atmosfer</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Active State -->
+<a class="flex items-center gap-4 bg-secondary-container/40 text-secondary-fixed rounded-xl p-4 shadow-[0_0_15px_rgba(110,32,140,0.3)] border-l-4 border-primary-container transition-all duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<!-- Inactive States -->
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-white/5 rounded-xl hover:bg-primary-container/10 hover:text-primary-fixed-dim transition-all hover:scale-[1.02] active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md text-label-md">Interactive Map</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-white/5 rounded-xl hover:bg-primary-container/10 hover:text-primary-fixed-dim transition-all hover:scale-[1.02] active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">cloudy_snowing</span>
+<span class="font-label-md text-label-md">Real-time Weather</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-white/5 rounded-xl hover:bg-primary-container/10 hover:text-primary-fixed-dim transition-all hover:scale-[1.02] active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-md text-label-md">Quizzes</span>
+</a>
+</div>
+<!-- Upgrade CTA -->
+<div class="mt-auto mb-4">
+<button class="w-full py-3 px-4 rounded-xl font-label-md text-label-md text-white bg-gradient-to-r from-primary-container to-secondary-container shadow-[0_0_15px_rgba(0,242,255,0.3)] hover:opacity-90 transition-opacity">
+                Upgrade to Pro
+            </button>
+</div>
+<!-- Footer -->
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col w-full min-h-screen relative overflow-hidden p-container-padding gap-6">
+<!-- TopAppBar (Mobile & Desktop Header) -->
+<header class="flex justify-between items-center w-full glass-panel rounded-xl p-4 shadow-sm border-b border-white/10 z-40">
+<div class="flex items-center gap-3">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary-fixed p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-glow">filter_drama</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary-container drop-shadow-[0_0_10px_#00F2FF] hidden sm:block">Laboratorium Atmosfer</h1>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface/30 border border-white/15 rounded-full py-2 px-4 pl-10 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all w-64 placeholder:text-on-surface-variant" placeholder="Search coordinates..." type="text">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-sm">search</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary-container rounded-full doodle-glow"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-primary-container shadow-[0_0_8px_#00F2FF]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVeZeFK134BQdRWGH9_UmTj8KYQYlKhMXLFm8TejZuO4rkxuUbaZF9Na-ugVmDf2lOYJedmawwTTO7mvL3BO9oWi8Vy477tNBJopIw3jcchjTZJINTlvbN4Lp88JGJ_qQ4HxRLBFO7zA8uJZk5MngsV3osUjyRjo2V87UHYN80GPSnjq_hxIBgD-7K68CY9fsv4uSyJf7xkS0sZWeGpo6XjoBxZ0mTW_TeYKzd0qgpatPAM2mZ8BvYBfndl0g0rk8HNXZD1XZT1JM">
+</div>
+</header>
+<!-- Dashboard Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 flex-grow">
+<!-- Central Interactive Map (Spans mostly) -->
+<section class="lg:col-span-8 xl:col-span-9 flex flex-col gap-4">
+<div class="glass-floating rounded-2xl p-6 flex-grow relative overflow-hidden flex flex-col widget-highlight map-interactive">
+<div class="flex justify-between items-center mb-4 z-10">
+<h2 class="font-headline-md text-headline-md text-white flex items-center gap-2">
+                            Global Atmospheric Currents
+                            <div class="flex items-center gap-2 mr-2"><span class="flex h-2 w-2 relative"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span></span><span class="text-[10px] font-bold uppercase tracking-widest text-primary-fixed opacity-80">Live</span></div><span class="material-symbols-outlined text-primary-container text-sm">info</span>
+</h2>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded-full text-xs font-label-md glass-card text-primary-fixed border border-primary-fixed/30 hover:bg-primary-fixed/10 transition-colors">Pressure</button>
+<button class="px-3 py-1 rounded-full text-xs font-label-md bg-gradient-to-r from-primary-container to-secondary-container text-surface-dim shadow-[0_0_10px_#00F2FF]">Wind</button>
+</div>
+</div>
+<!-- Map Visualization Canvas -->
+<div class="w-full h-full min-h-[400px] rounded-xl relative overflow-hidden border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAQQqy3MQY9qQexpk_k6rij6lhPUJSkkQOGv6kGS-J_ctBnL30xbfae-uHyzo6Y4i6m7BdozOMYuzkN4G79JicWbbvbt5DUeFQQ8YhRFEwcC3dxQMwDbOVpjtQhv0usCV4cQgKG_BWBiZHntyR5JfSgg80TQjSQj6kHq1g27M1tfs4KjLWTHHyHKm1ZUB1302P1sNdDmPN9ElZWwiktTwbgMovQ20gSJPsMudfYp8kciekRe6r8BYtmgNa1iKhKPIZ0rnpoxDzS1SQ'); background-size: cover; background-position: center; mix-blend-mode: luminosity;"><div class="absolute inset-0 pointer-events-none opacity-20" style="background-image: radial-gradient(rgb(0, 242, 255) 0.5px, transparent 0.5px); background-size: 20px 20px;"></div><svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><pattern id="honeycomb" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M5 0 L10 2.5 L10 7.5 L5 10 L0 7.5 L0 2.5 Z" fill="none" stroke="#00f2ff" stroke-width="0.1"></path></pattern></defs><rect width="100" height="100" fill="url(#honeycomb)"></rect></svg>
+<!-- Overlay gradient for the map -->
+<div class="absolute inset-0 bg-surface/60"></div>
+<!-- Simulated SVG Paths for currents (Doodle style) -->
+<svg class="absolute inset-0 w-full h-full opacity-70" preserveAspectRatio="none" viewBox="0 0 100 100">
+<path class="doodle-glow" d="M 10 50 Q 30 20, 50 50 T 90 50" fill="none" stroke="#00F2FF" stroke-dasharray="2 1" stroke-width="0.5"></path>
+<path d="M 20 80 Q 40 40, 60 70 T 100 60" fill="none" filter="drop-shadow(0 0 4px #e498ff)" stroke="#e498ff" stroke-width="0.3"></path>
+<path class="doodle-glow" d="M 0 30 Q 50 80, 80 20" fill="none" stroke="#00dbe7" stroke-width="0.4"></path>
+<!-- Abstract pressure zone -->
+<circle cx="45" cy="55" fill="url(#grad1)" opacity="0.4" r="15"></circle>
+<defs>
+<radialGradient cx="50%" cy="50%" id="grad1" r="50%">
+<stop offset="0%" style="stop-color:#6e208c;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#00f2ff;stop-opacity:0"></stop>
+</radialGradient>
+</defs>
+</svg>
+<!-- Data Points (Doodle style annotations) -->
+<div class="absolute top-1/4 left-1/3 group cursor-help flex flex-col items-center"><div class="w-4 h-4 rounded-full bg-primary-container doodle-glow animate-pulse ring-4 ring-primary-container/20 group-hover:scale-125 transition-transform"></div><div class="mt-2 opacity-0 group-hover:opacity-100 transition-opacity absolute top-full flex flex-col items-center pointer-events-none"><div class="font-label-md text-[10px] text-primary-fixed bg-surface/80 px-2 py-1 rounded backdrop-blur-xl border border-primary-fixed/30 whitespace-nowrap shadow-xl">High Pressure: <span class="text-white font-bold">1013 hPa</span></div><div class="w-px h-2 bg-primary-fixed/30"></div></div><span class="mt-1 font-label-md text-[10px] text-primary-fixed/70 uppercase tracking-tighter">1013 hPa</span></div>
+<div class="absolute bottom-1/3 right-1/4 group cursor-help flex flex-col items-center"><div class="w-4 h-4 rounded-full bg-error error-glow animate-pulse ring-4 ring-error/20 group-hover:scale-125 transition-transform"></div><div class="mb-2 opacity-0 group-hover:opacity-100 transition-opacity absolute bottom-full flex flex-col items-center pointer-events-none"><div class="font-label-md text-[10px] text-error bg-surface/80 px-2 py-1 rounded backdrop-blur-xl border border-error/30 whitespace-nowrap shadow-xl">Typhoon Form: <span class="text-white font-bold">120 km/h</span></div><div class="w-px h-2 bg-error/30"></div></div><span class="mt-1 font-label-md text-[10px] text-error/70 uppercase tracking-tighter">120 km/h</span></div>
+<div class="absolute bottom-4 left-4 flex flex-col gap-2 z-20"><div class="glass-floating px-3 py-2 rounded-lg flex items-center gap-3 border border-white/10"><div class="flex flex-col"><span class="text-[10px] text-on-surface-variant uppercase">Data Layers</span><div class="flex gap-2 mt-1"><button class="w-6 h-6 rounded bg-primary-container/20 border border-primary-container/40 flex items-center justify-center text-primary-container"><span class="material-symbols-outlined text-xs">thermostat</span></button><button class="w-6 h-6 rounded bg-surface/40 border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary-fixed"><span class="material-symbols-outlined text-xs">compress</span></button><button class="w-6 h-6 rounded bg-surface/40 border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary-fixed"><span class="material-symbols-outlined text-xs">air</span></button></div></div><div class="h-8 w-px bg-white/10 mx-1"></div><div class="flex flex-col"><span class="text-[10px] text-on-surface-variant uppercase">Scale</span><div class="w-24 h-1.5 bg-gradient-to-r from-primary-fixed via-primary-container to-error rounded-full mt-2"></div></div></div></div></div>
+</div>
+</section>
+<!-- Side Widgets Panel -->
+<section class="lg:col-span-4 xl:col-span-3 flex flex-col gap-6">
+<!-- Temperature Widget -->
+<div class="glass-card rounded-2xl p-6 widget-highlight border-t border-l border-primary-container/30">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">thermostat</span> Local Temp
+                        </span>
+<span class="material-symbols-outlined text-primary-container">more_vert</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-white text-glow">24°</span>
+<span class="font-body-lg text-body-lg text-primary-fixed mb-2">C</span>
+</div>
+<div class="mt-4 h-1 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full w-3/4 bg-gradient-to-r from-primary-fixed to-error doodle-glow"></div>
+</div>
+<!-- Doodle underline -->
+<div class="mt-2 w-12 h-1 rounded-full bg-primary-container/50 transform -rotate-2"></div>
+</div>
+<!-- Humidity Widget -->
+<div class="glass-card rounded-2xl p-6 widget-highlight border-t border-l border-primary-container/30 relative overflow-hidden">
+<!-- Liquid background effect -->
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary-fixed/20 to-transparent -z-10"></div>
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">water_drop</span> Humidity
+                        </span>
+</div>
+<div class="flex items-center gap-4 mt-2">
+<div class="w-16 h-16 rounded-full border-2 border-primary-fixed/40 flex items-center justify-center relative bg-surface/40 backdrop-blur-md">
+<span class="font-headline-md text-headline-md text-white z-10">65%</span>
+<!-- Liquid fill simulation -->
+<div class="absolute bottom-0 left-0 w-full h-[65%] bg-primary-container/30 rounded-b-full"></div>
+</div>
+<div class="flex flex-col">
+<span class="font-caption text-caption text-primary-fixed">Dew Point: 16°C</span>
+<span class="font-caption text-caption text-on-surface-variant">Rising slightly</span>
+</div>
+</div>
+</div>
+<!-- Wind Speed Widget -->
+<div class="glass-card rounded-2xl p-6 widget-highlight border-t border-l border-secondary-container/50">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">air</span> Wind Dynamics
+                        </span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-white drop-shadow-[0_0_8px_#e498ff]">12</span>
+<span class="font-caption text-caption text-secondary-fixed-dim">km/h NW</span>
+</div>
+<div class="w-12 h-12 bg-secondary-container/20 rounded-xl flex items-center justify-center border border-secondary-container/50">
+<!-- Motion blur simulation -->
+<span class="material-symbols-outlined text-secondary-fixed text-3xl" style="filter: blur(0.5px); transform: skewX(-15deg);">fast_forward</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full glass-panel border-t border-white/10 p-2 flex justify-around items-center z-50">
+<a class="flex flex-col items-center p-2 text-primary-fixed" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-caption text-[10px] mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary-fixed-dim" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-caption text-[10px] mt-1">Map</span>
+</a>
+<a class="flex flex-col items-center p-2 text-on-surface-variant hover:text-primary-fixed-dim" href="#">
+<span class="material-symbols-outlined">cloudy_snowing</span>
+<span class="font-caption text-[10px] mt-1">Weather</span>
+</a>
+</nav>
+
+
+</body></html>

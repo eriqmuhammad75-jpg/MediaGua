@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laboratorium Atmosfer - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-container": "#d1d9ff",
+                "on-background": "#e3e0f3",
+                "on-primary-container": "#006a71",
+                "inverse-surface": "#e3e0f3",
+                "secondary-fixed-dim": "#edb1ff",
+                "tertiary-fixed-dim": "#b6c4ff",
+                "surface-bright": "#383846",
+                "primary-fixed": "#74f5ff",
+                "surface-container-highest": "#343341",
+                "secondary": "#edb1ff",
+                "surface-variant": "#343341",
+                "primary": "#e1fdff",
+                "on-error": "#690005",
+                "primary-container": "#00f2ff",
+                "secondary-fixed": "#f9d8ff",
+                "on-primary": "#00363a",
+                "inverse-primary": "#00696f",
+                "error-container": "#93000a",
+                "tertiary-fixed": "#dce1ff",
+                "primary-fixed-dim": "#00dbe7",
+                "on-primary-fixed-variant": "#004f54",
+                "on-surface-variant": "#b9cacb",
+                "background": "#12121f",
+                "surface-dim": "#12121f",
+                "on-tertiary": "#05297a",
+                "surface-container-high": "#292936",
+                "on-primary-fixed": "#002022",
+                "surface-container-lowest": "#0d0d19",
+                "on-tertiary-container": "#425bac",
+                "on-secondary-fixed-variant": "#6e208c",
+                "on-tertiary-fixed-variant": "#264191",
+                "outline": "#849495",
+                "inverse-on-surface": "#2f2f3d",
+                "outline-variant": "#3a494b",
+                "on-secondary-container": "#e498ff",
+                "surface-container": "#1f1e2b",
+                "on-secondary-fixed": "#320046",
+                "surface-tint": "#00dbe7",
+                "surface-container-low": "#1a1a27",
+                "surface": "#12121f",
+                "on-secondary": "#520070",
+                "tertiary": "#f8f6ff",
+                "secondary-container": "#6e208c",
+                "on-error-container": "#ffdad6",
+                "on-surface": "#e3e0f3",
+                "error": "#ffb4ab",
+                "on-tertiary-fixed": "#00164e"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "unit": "8px",
+                "container-padding": "24px",
+                "sidebar-collapsed": "72px",
+                "gutter": "16px",
+                "sidebar-width": "280px"
+        },
+        "fontFamily": {
+                "caption": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Outfit"
+                ],
+                "headline-lg": [
+                        "Outfit"
+                ],
+                "display-lg": [
+                        "Outfit"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Outfit"
+                ]
+        },
+        "fontSize": {
+                "caption": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "500"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #050510; /* Deep Navy Base Level 0 */
+            color: #e3e0f3;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(30, 58, 138, 0.2); /* Deep Blue Level 1 */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .glass-panel-elevated {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.05);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1); /* White Level 2 */
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .glass-floating {
+            background: rgba(255, 255, 255, 0.1); /* White Level 3 */
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.1); /* Primary Cyan glow */
+        }
+        .doodle-glow {
+            box-shadow: 0 0 10px #00F2FF;
+        }
+        .error-glow {
+            box-shadow: 0 0 10px #ffb4ab;
+        }
+        .text-glow {
+            text-shadow: 0 0 8px #74f5ff;
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+        .gradient-border-top-left {
+            position: relative;
+        }
+        .gradient-border-top-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+            border-top: 2px solid;
+            border-left: 2px solid;
+            border-image: linear-gradient(to bottom right, rgba(0, 242, 255, 0.8), transparent) 1;
+            pointer-events: none;
+        }
+        .doodle-underline {
+            position: relative;
+            display: inline-block;
+        }
+        .doodle-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(0, 242, 255, 0.6);
+            border-radius: 50%;
+            filter: blur(1px);
+            transform: rotate(-1deg);
+        }
+        
+        /* Ambient Background Effect */
+        .ambient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 50%, rgba(30, 58, 138, 0.15) 0%, rgba(5, 5, 16, 1) 70%);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex text-on-background font-body-md bg-background">
+<div class="ambient-bg"></div>
+<!-- SideNavBar (Hidden on Mobile, Flex on Desktop) -->
+<nav class="hidden md:flex bg-surface-container-low/30 dark:bg-surface-container-low/30 backdrop-blur-2xl h-screen sticky left-0 top-0 w-sidebar-width border-r border-white/15 shadow-2xl flex-col gap-unit p-4 transition-all duration-300 z-50">
+<!-- Header -->
+<div class="flex items-center gap-4 mb-8 px-2 mt-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shadow-[0_0_10px_#00F2FF]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">public</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-md text-primary-fixed drop-shadow-[0_0_8px_#74f5ff]">Laboratorium</span>
+<span class="font-label-md text-caption text-primary-fixed-dim">Atmosfer</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2 flex-grow">
+<!-- Active State -->
+<a class="flex items-center gap-4 bg-secondary-container/40 text-secondary-fixed rounded-xl p-4 shadow-[0_0_15px_rgba(110,32,140,0.3)] border-l-4 border-primary-container transition-all duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<!-- Inactive States -->
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-white/5 rounded-xl hover:bg-primary-container/10 hover:text-primary-fixed-dim transition-all hover:scale-[1.02] active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-md text-label-md">Interactive Map</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-white/5 rounded-xl hover:bg-primary-container/10 hover:text-primary-fixed-dim transition-all hover:scale-[1.02] active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">cloudy_snowing</span>
+<span class="font-label-md text-label-md">Real-time Weather</span>
+</a>
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-white/5 rounded-xl hover:bg-primary-container/10 hover:text-primary-fixed-dim transition-all hover:scale-[1.02] active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-md text-label-md">Quizzes</span>
+</a>
+</div>
+<!-- Upgrade CTA -->
+<div class="mt-auto mb-4">
+<button class="w-full py-3 px-4 rounded-xl font-label-md text-label-md text-white bg-gradient-to-r from-primary-container to-secondary-container shadow-[0_0_15px_rgba(0,242,255,0.3)] hover:opacity-90 transition-opacity">
+                Upgrade to Pro
+            </button>
+</div>
+<!-- Footer -->
+<a class="flex items-center gap-4 text-on-surface-variant p-4 hover:bg-white/5 rounded-xl transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-md text-label-md">Logout</span>
+</a>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col w-full min-h-screen relative overflow-y-auto p-container-padding gap-6">
+<!-- TopAppBar (Mobile & Desktop Header) -->
+<header class="flex justify-between items-center w-full glass-panel rounded-xl p-4 shadow-sm border-b border-white/10 z-40">
+<div class="flex items-center gap-3">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary-fixed p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-glow">filter_drama</span>
+<h1 class="font-headline-md text-headline-md font-bold text-primary-container drop-shadow-[0_0_10px_#00F2FF] hidden sm:block">Laboratorium Atmosfer</h1>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface/30 border border-white/15 rounded-full py-2 px-4 pl-10 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all w-64 placeholder:text-on-surface-variant" placeholder="Search coordinates..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-sm">search</span>
+</div>
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-primary-container rounded-full doodle-glow"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-primary-container shadow-[0_0_8px_#00F2FF]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVeZeFK134BQdRWGH9_UmTj8KYQYlKhMXLFm8TejZuO4rkxuUbaZF9Na-ugVmDf2lOYJedmawwTTO7mvL3BO9oWi8Vy477tNBJopIw3jcchjTZJINTlvbN4Lp88JGJ_qQ4HxRLBFO7zA8uJZk5MngsV3osUjyRjo2V87UHYN80GPSnjq_hxIBgD-7K68CY9fsv4uSyJf7xkS0sZWeGpo6XjoBxZ0mTW_TeYKzd0qgpatPAM2mZ8BvYBfndl0g0rk8HNXZD1XZT1JM"/>
+</div>
+</header>
+<div class="flex-grow flex flex-col gap-6">
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full">
+<!-- Main Satellite Visualization (Col Span 8) -->
+<div class="lg:col-span-8 glass-panel rounded-2xl overflow-hidden relative min-h-[400px] lg:min-h-0 flex flex-col border border-white/10 gradient-border-top-left">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700?auto=format&amp;fit=crop&amp;w=1600&amp;q=80')] bg-cover bg-center opacity-40 mix-blend-screen" data-alt="High-resolution false-color infrared satellite imagery of the Indonesian archipelago. Swirling deep purple clouds, bright cyan thermal hotspots indicating intense weather systems. Dark, oceanic background. Highly detailed, scientific observation perspective."></div>
+<div class="relative z-10 p-6 flex justify-between items-start pointer-events-none">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-white mb-1 glow-text">Infrared Observation</h2>
+<p class="font-body-md text-body-md text-primary-fixed font-medium"><span class="doodle-underline">Region: Nusantara</span> • Live Sync</p>
+</div>
+<div class="glass-panel-elevated px-4 py-2 rounded-lg flex items-center gap-2 pointer-events-auto">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="font-label-md text-label-md text-error-container tracking-wider uppercase">Recording</span>
+</div>
+</div>
+<!-- Overlay UI Elements -->
+<div class="absolute bottom-6 right-6 flex flex-col gap-3 z-10">
+<button class="w-10 h-10 rounded-full glass-panel-elevated flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="add">add</span>
+</button>
+<button class="w-10 h-10 rounded-full glass-panel-elevated flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-primary-fixed-dim" data-icon="remove">remove</span>
+</button>
+</div>
+</div>
+<!-- Live Atmospheric Feed (Col Span 4) -->
+<div class="lg:col-span-4 glass-panel rounded-2xl p-6 flex flex-col gap-4 border border-white/10">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-secondary-fixed-dim" data-icon="radar">radar</span>
+<h3 class="font-headline-md text-headline-md text-white">Atmospheric Events</h3>
+</div>
+<div class="flex-grow flex flex-col gap-3 overflow-y-auto pr-2" style="scrollbar-width: thin; scrollbar-color: rgba(0,242,255,0.3) transparent;">
+<!-- Event Item -->
+<div class="glass-panel-elevated p-4 rounded-xl border-l-4 border-error">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-error-container bg-error/10 px-2 py-0.5 rounded">Alert</span>
+<span class="font-caption text-caption text-on-surface-variant">Just now</span>
+</div>
+<p class="font-body-md text-body-md text-white">Thunderstorm detected over <span class="text-primary-fixed">West Java</span></p>
+<p class="font-caption text-caption text-on-surface-variant mt-1">High cloud top cooling rate observed.</p>
+</div>
+<!-- Event Item -->
+<div class="glass-panel-elevated p-4 rounded-xl border-l-4 border-secondary-container">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-secondary-fixed bg-secondary-container/20 px-2 py-0.5 rounded">Warning</span>
+<span class="font-caption text-caption text-on-surface-variant">12m ago</span>
+</div>
+<p class="font-body-md text-body-md text-white">UV Index High in <span class="text-primary-fixed">Bali</span></p>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Extreme exposure levels peaking.</p>
+</div>
+<!-- Event Item -->
+<div class="glass-panel-elevated p-4 rounded-xl border-l-4 border-primary-container">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-primary-fixed bg-primary-container/10 px-2 py-0.5 rounded">Update</span>
+<span class="font-caption text-caption text-on-surface-variant">45m ago</span>
+</div>
+<p class="font-body-md text-body-md text-white">Wind gusts increasing in <span class="text-primary-fixed">Sunda Strait</span></p>
+<p class="font-caption text-caption text-on-surface-variant mt-1">Sustained speeds &gt; 35 knots.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Regional Forecast Grid (Bottom Row) -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
+<!-- City Card -->
+<div class="glass-panel-elevated p-5 rounded-xl border border-white/10 hover:border-primary-fixed-dim/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Jakarta</h4>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-white">32°</span>
+<span class="font-body-md text-body-md text-error">H</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-3xl text-primary-fixed-dim group-hover:scale-110 transition-transform" data-icon="thunderstorm" style="font-variation-settings: 'FILL' 1;">thunderstorm</span>
+</div>
+<!-- Sparkline Placeholder (Doodle Style) -->
+<div class="h-8 w-full border-b border-dashed border-white/20 relative">
+<svg class="absolute bottom-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,15 Q25,5 50,10 T100,2" fill="none" filter="drop-shadow(0px 2px 4px rgba(0,219,231,0.5))" stroke="#00dbe7" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- City Card -->
+<div class="glass-panel-elevated p-5 rounded-xl border border-white/10 hover:border-primary-fixed-dim/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Surabaya</h4>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-white">35°</span>
+<span class="font-body-md text-body-md text-error">H</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-3xl text-secondary-fixed-dim group-hover:scale-110 transition-transform" data-icon="sunny" style="font-variation-settings: 'FILL' 1;">sunny</span>
+</div>
+<div class="h-8 w-full border-b border-dashed border-white/20 relative">
+<svg class="absolute bottom-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,5 Q25,10 50,5 T100,15" fill="none" stroke="#edb1ff" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- City Card -->
+<div class="glass-panel-elevated p-5 rounded-xl border border-white/10 hover:border-primary-fixed-dim/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Medan</h4>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-white">28°</span>
+<span class="font-body-md text-body-md text-primary-fixed">M</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-3xl text-primary-fixed group-hover:scale-110 transition-transform" data-icon="rainy" style="font-variation-settings: 'FILL' 1;">rainy</span>
+</div>
+<div class="h-8 w-full border-b border-dashed border-white/20 relative">
+<svg class="absolute bottom-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,10 Q25,18 50,15 T100,5" fill="none" stroke="#74f5ff" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+<!-- City Card -->
+<div class="glass-panel-elevated p-5 rounded-xl border border-white/10 hover:border-primary-fixed-dim/50 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-1">Makassar</h4>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-white">31°</span>
+<span class="font-body-md text-body-md text-primary-fixed">M</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-3xl text-tertiary-fixed-dim group-hover:scale-110 transition-transform" data-icon="partly_cloudy_day" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+</div>
+<div class="h-8 w-full border-b border-dashed border-white/20 relative">
+<svg class="absolute bottom-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,8 Q25,5 50,12 T100,10" fill="none" stroke="#b6c4ff" stroke-linecap="round" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
